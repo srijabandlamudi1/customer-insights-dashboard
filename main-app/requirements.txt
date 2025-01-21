@@ -1,0 +1,10 @@
+streamlit
+pandas
+pymongo
+scikit-learn
+torch
+altair
+keras==2.15.0
+tensorflow==2.15.0
+tf-keras==2.15.0
+transformers==4.34.0

@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:5.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  app:
+    build: 
+      context: ./main-app
+    ports:
+      - "8501:8501"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/customer_dashboard
+
+  updater:
+    build:
+      context: ./new-data
+    volumes:
+      - ./new-data/datasets:/updater/datasets
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/customer_dashboard
+    depends_on:
+      - mongodb
+volumes:
+  mongo_data:

@@ -1,12 +1,10 @@
-# Ignore Python virtual environments
-venv/
-env/
+#*virtualenv
 cid/
 __pycache__/
 *.pyc
 *.pyo
 
-# Ignore large binary files (except Docker and dataset-related files)
+#*large files
 *.dylib
 *.so
 *.dll
@@ -14,21 +12,17 @@ __pycache__/
 *.h5
 *.ckpt
 
-# Include Docker files
+#Include Docker files&datasets
 !docker-compose.yml
 !main-app/Dockerfile
 !new-data/Dockerfile
-
-# Include datasets
 !new-data/datasets/
 
-# Ignore temporary or system files
+#Ignore temp or system files
 .DS_Store
 *.log
 *.tmp
 
-# Ignore Jupyter Notebook checkpoints
+#JupyterNotebook checkpoints
 .ipynb_checkpoints/
-
-# Ignore environment files
 .env

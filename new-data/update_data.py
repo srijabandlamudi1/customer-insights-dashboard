@@ -19,7 +19,6 @@ def process_csv_file(file_path, collection): #read csv file and update mongodb
         records = data.to_dict(orient="records")
         # insert or update records
         for record in records:
-            # Use a unique identifier for upserting (e.g., a combination of fields)
             unique_key = {"_id": hash(frozenset(record.items()))}
             collection.update_one(unique_key, {"$set": record}, upsert=True)
 
